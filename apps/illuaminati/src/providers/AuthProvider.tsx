@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import type { User } from 'firebase/auth'
 import { useRouter } from 'next/router'
+import type { User } from 'firebase/auth'
 import { signOut, onAuthStateChanged } from 'firebase/auth'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 import { auth } from '~/libs/firebase'
 
@@ -29,7 +29,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     await signOut(auth)
     setCurrentUser(null)
     setUid(null)
-    push('/login')
+    push('/')
   }
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (!user) {
         setCurrentUser(null)
         setUid(null)
-        push('/login')
         return
       }
 
