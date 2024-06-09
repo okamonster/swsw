@@ -1,15 +1,14 @@
 import type { ComponentProps, ReactNode } from 'react'
 import classNames from 'classnames'
 
-import type { Radius, Variant } from './types'
-import styles from './styles.module.css'
+import { radiusSize, type Radius, type Variant } from './types'
+import styles from './style.module.css'
 
 type Props = {
   label: ReactNode
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   variant?: Variant
-  color?: string
   width?: string
   height?: string
   radius?: Radius
@@ -20,7 +19,6 @@ export const BaseButton = ({
   leftIcon,
   rightIcon,
   variant = 'primary',
-  color = '',
   width = '100%',
   height = '40px',
   radius = 'md',
@@ -31,7 +29,15 @@ export const BaseButton = ({
     styles[radius],
   ])
   return (
-    <button className={baseButtonClass} {...props}>
+    <button
+      className={baseButtonClass}
+      {...props}
+      style={{
+        width,
+        height,
+        borderRadius: radiusSize[radius],
+      }}
+    >
       {leftIcon && leftIcon}
       {label}
       {rightIcon && rightIcon}

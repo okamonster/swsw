@@ -1,9 +1,9 @@
 export const radiusSize = {
-  xs: '5px',
-  sm: '10px',
-  md: '20px',
-  lg: '30px',
-  xl: '50px',
+  xs: '2px',
+  sm: '5px',
+  md: '10px',
+  lg: '20px',
+  xl: '30px',
 }
 
 export type Radius = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
