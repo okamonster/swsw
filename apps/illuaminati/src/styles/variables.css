@@ -2,4 +2,11 @@
   /* bg-colors */
   --bg-color-white: #ffffff;
   --bg-color-pink: #fcdce0;
+
+  /* theme colors */
+  --color-primary: #f18d9a;
+
+  /* text colors */
+  --color-text-white: #ffffff;
+  --color-text-black: #333333;
 }

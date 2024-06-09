@@ -5,7 +5,6 @@
 
   .content {
     max-width: 500px;
-    min-height: 100svh;
     background-color: var(--bg-color-white);
     width: 100%;
   }
