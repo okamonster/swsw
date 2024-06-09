@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
 
