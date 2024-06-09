@@ -26,4 +26,5 @@
 .tertiary {
   color: var(--color-primary);
   border: solid 2px var(--color-primary);
+  background-color: transparent;
 }

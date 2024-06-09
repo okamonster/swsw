@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
     "@mantine/core": "^7.10.0",
     "@mantine/dropzone": "^7.10.0",
     "@mantine/hooks": "^7.10.0",
@@ -16,7 +17,9 @@
     "firebase": "^10.12.2",
     "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.51.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.11.3",
