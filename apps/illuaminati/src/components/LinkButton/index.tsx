@@ -32,7 +32,12 @@ export const LinkButton = ({
     styles[radius],
   ])
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      style={{
+        width: '100%',
+      }}
+    >
       <button
         className={baseButtonClass}
         {...props}
