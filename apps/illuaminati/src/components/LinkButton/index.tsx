@@ -14,7 +14,7 @@ type Props = {
   height?: string
   radius?: Radius
   href: string
-} & ComponentProps<'button'>
+}
 
 export const LinkButton = ({
   label,
@@ -25,7 +25,6 @@ export const LinkButton = ({
   height = '40px',
   radius = 'md',
   href,
-  ...props
 }: Props): ReactNode => {
   const baseButtonClass = classNames(styles.linkButton, [
     styles[variant],
@@ -34,23 +33,16 @@ export const LinkButton = ({
   return (
     <Link
       href={href}
+      className={baseButtonClass}
       style={{
-        width: '100%',
+        width,
+        height,
+        borderRadius: radiusSize[radius],
       }}
     >
-      <button
-        className={baseButtonClass}
-        {...props}
-        style={{
-          width,
-          height,
-          borderRadius: radiusSize[radius],
-        }}
-      >
-        {leftIcon && leftIcon}
-        {label}
-        {rightIcon && rightIcon}
-      </button>
+      {leftIcon && leftIcon}
+      {label}
+      {rightIcon && rightIcon}
     </Link>
   )
 }
