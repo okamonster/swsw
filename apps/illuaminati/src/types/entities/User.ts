@@ -10,7 +10,6 @@ export type User = {
   displayName: string
   email: string
   hobby: string
-  password: string
   profileImagePath: string
   selfIntroduction: string
   updatedAt: string
