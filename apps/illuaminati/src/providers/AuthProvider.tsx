@@ -10,7 +10,12 @@ const AuthContext = createContext<{
   currentUser: User | null | undefined
   isLogin: boolean
   logout: () => Promise<void>
-} | null>(null)
+}>({
+  uid: null,
+  currentUser: null,
+  isLogin: false,
+  logout: async () => {},
+})
 
 const nonAuthPaths = ['/login']
 
