@@ -10,7 +10,6 @@ export const useCreateUserMutation = () => {
 
   const createUser = useCallback(
     async (data: UserProfileSchemaType) => {
-      console.log(uid)
       if (!uid || !currentUser) {
         return
       }
