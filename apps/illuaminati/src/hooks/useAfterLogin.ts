@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
-import { isExistUserByIdOperation } from '~/infrastructure/operations/userOperations'
+import { isExistUserByIdOperation } from '~/infrastructure/operations/UserOperations'
 import type { UserId } from '~/types/entities/User'
 
 export const useAfterLogin = () => {
