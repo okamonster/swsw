@@ -3,6 +3,8 @@ import { PasswordInput, TextInput } from '@mantine/core'
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'next/router'
 
 import styles from './style.module.css'
 
@@ -10,8 +12,12 @@ import { BaseButton } from '~/components/BaseButton'
 import { LinkButton } from '~/components/LinkButton'
 import type { LoginFormSchemaType } from '~/features/auth/types'
 import { loginFormSchema } from '~/features/auth/types'
+import { auth } from '~/libs/firebase'
+import { useToast } from '~/hooks/useToast'
 
 export const LoginForm = (): React.ReactNode => {
+  const { push } = useRouter()
+  const { showErrorToast } = useToast()
   const {
     register,
     handleSubmit,
@@ -25,7 +31,17 @@ export const LoginForm = (): React.ReactNode => {
     mode: 'onSubmit',
   })
 
-  const onSubmit = useCallback(() => {}, [])
+  const onSubmit = useCallback(
+    async (data: LoginFormSchemaType) => {
+      try {
+        await signInWithEmailAndPassword(auth, data.email, data.password)
+        push('/top')
+      } catch (error) {
+        showErrorToast('ログインに失敗しました')
+      }
+    },
+    [push, showErrorToast],
+  )
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
