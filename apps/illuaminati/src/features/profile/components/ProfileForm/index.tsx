@@ -2,6 +2,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { TextInput, Textarea } from '@mantine/core'
 import { useCallback } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/router'
 
 import styles from './style.module.css'
 
@@ -11,8 +12,14 @@ import {
   userProfileSchema,
   type UserProfileSchemaType,
 } from '~/features/profile/types'
+import { useCreateUserMutation } from '~/features/profile/hooks/useCreateUserMutation'
+import { useToast } from '~/hooks/useToast'
 
 export const ProfileForm = (): React.ReactNode => {
+  const createUser = useCreateUserMutation()
+  const { showSuccessToast, showErrorToast } = useToast()
+  const { push } = useRouter()
+
   const {
     control,
     register,
@@ -29,7 +36,18 @@ export const ProfileForm = (): React.ReactNode => {
     mode: 'onSubmit',
   })
 
-  const onSubmit = useCallback((data: UserProfileSchemaType) => {}, [])
+  const onSubmit = useCallback(
+    async (data: UserProfileSchemaType) => {
+      try {
+        await createUser(data)
+        showSuccessToast('ユーザーを作成しました')
+        push('/home')
+      } catch (e) {
+        showErrorToast('ユーザーの作成に失敗しました')
+      }
+    },
+    [createUser, push, showErrorToast, showSuccessToast],
+  )
 
   return (
     <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
