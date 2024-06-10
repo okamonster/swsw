@@ -1,5 +1,9 @@
 import type { FieldValue } from 'firebase/firestore'
 
+export type UserId = string
+
+export const userCollection = 'users'
+
 export type User = {
   userId: string
   createdAt: string

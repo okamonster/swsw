@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { useRouter } from 'next/router'
 
 import styles from './style.module.css'
 
@@ -14,9 +13,10 @@ import type { LoginFormSchemaType } from '~/features/auth/types'
 import { loginFormSchema } from '~/features/auth/types'
 import { auth } from '~/libs/firebase'
 import { useToast } from '~/hooks/useToast'
+import { useAfterLogin } from '~/hooks/useAfterLogin'
 
 export const LoginForm = (): React.ReactNode => {
-  const { push } = useRouter()
+  const afterLogin = useAfterLogin()
   const { showErrorToast } = useToast()
   const {
     register,
@@ -34,13 +34,17 @@ export const LoginForm = (): React.ReactNode => {
   const onSubmit = useCallback(
     async (data: LoginFormSchemaType) => {
       try {
-        await signInWithEmailAndPassword(auth, data.email, data.password)
-        push('/top')
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          data.email,
+          data.password,
+        )
+        await afterLogin(userCredential.user.uid)
       } catch (error) {
         showErrorToast('ログインに失敗しました')
       }
     },
-    [push, showErrorToast],
+    [afterLogin, showErrorToast],
   )
 
   return (

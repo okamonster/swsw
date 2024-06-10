@@ -35,7 +35,7 @@ export const SignupForm = (): React.ReactNode => {
     async (data: SignupFormSchemaType) => {
       try {
         await createUserWithEmailAndPassword(auth, data.email, data.password)
-        push('/top')
+        push('/register')
       } catch (error) {
         showErrorToast('登録に失敗しました')
       }
