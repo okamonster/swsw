@@ -19,3 +19,12 @@ export type CreateUserDto = Omit<User, 'userId' | 'createdAt' | 'updatedAt'> & {
   createdAt: FieldValue
   updatedAt: FieldValue
 }
+
+export type UpdateUserDto = {
+  displayName?: string
+  email?: string
+  hobby?: string
+  profileImagePath?: string
+  selfIntroduction?: string
+  updatedAt: FieldValue
+}
