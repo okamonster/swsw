@@ -32,7 +32,7 @@ export const EditProfileForm = ({
   const {
     control,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     getValues,
   } = useForm<EditUserProfileSchemaType>({
     defaultValues: {
@@ -42,7 +42,7 @@ export const EditProfileForm = ({
       hobby: myUser.hobby,
     },
     resolver: zodResolver(editUserProfileSchema),
-    mode: 'onSubmit',
+    mode: 'all',
   })
 
   const onSubmit = useCallback(
@@ -107,6 +107,7 @@ export const EditProfileForm = ({
         onClick={() => onSubmit(getValues())}
         label="登録"
         radius="lg"
+        disabled={!isValid}
       />
     </div>
   )
