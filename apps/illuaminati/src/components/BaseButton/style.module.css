@@ -28,3 +28,8 @@
   border: solid 2px var(--color-primary);
   background-color: transparent;
 }
+
+.disabled {
+  background-color: var(--border-color-gray);
+  border: none;
+}

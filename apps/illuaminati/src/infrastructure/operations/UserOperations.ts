@@ -1,8 +1,13 @@
 import type { Unsubscribe } from 'firebase/firestore'
-import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore'
+import { doc, getDoc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
 
 import { db } from '~/libs/firebase'
-import type { CreateUserDto, User, UserId } from '~/types/entities/User'
+import type {
+  CreateUserDto,
+  UpdateUserDto,
+  User,
+  UserId,
+} from '~/types/entities/User'
 import { userCollection } from '~/types/entities/User'
 import { convertDate } from '~/utils/convertDate'
 
@@ -36,6 +41,13 @@ export const subscribeUserByIdOperation = (
     },
   )
   return unsubscribe
+}
+
+export const updateUserByIdOperation = async (
+  userId: UserId,
+  dto: UpdateUserDto,
+): Promise<void> => {
+  await updateDoc(doc(db, userCollection, userId), { ...dto })
 }
 
 export const isExistUserByIdOperation = async (userId: UserId) => {

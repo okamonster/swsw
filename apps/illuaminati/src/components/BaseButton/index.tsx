@@ -27,6 +27,7 @@ export const BaseButton = ({
   const baseButtonClass = classNames(styles.baseButton, [
     styles[variant],
     styles[radius],
+    props.disabled && styles.disabled,
   ])
   return (
     <button
