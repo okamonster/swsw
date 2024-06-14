@@ -1,0 +1,50 @@
+.illuaminatiCard {
+  width: 330px;
+  height: 200px;
+  border-radius: 10px;
+  border: solid 4px var(--border-color-gray);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-white);
+  position: relative;
+  gap: 20px;
+  padding: 10px 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  .title {
+    font-family: 'Kaisei Opti';
+    font-size: 16px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-primary);
+  }
+
+  .visual {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .profileImage {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      border: solid 1px var(--border-color-gray);
+    }
+
+    .displayName {
+      font-size: 22px;
+      font-family: 'Kaisei Opti', serif;
+    }
+  }
+
+  .number {
+    font-size: 14px;
+    font-family: 'Roboto', serif;
+  }
+
+  .swanIcon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
