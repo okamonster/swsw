@@ -1,0 +1,99 @@
+.mypageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 70px;
+
+  .cardWrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color-light-purple);
+    border-bottom: solid 1px var(--border-color-gray);
+  }
+
+  .share {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--color-text-black);
+    }
+
+    .buttonList {
+      display: flex;
+      gap: 10px;
+    }
+
+    .twitter {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin: 0;
+      background-color: var(--bg-color-black);
+      color: var(--color-text-white);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+  }
+
+  .userProfile {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      .displayName {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--color-text-black);
+      }
+
+      .editButton {
+        background-color: var(--bg-color-white);
+        border: solid 2px var(--color-text-purple);
+        color: var(--color-text-purple);
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .heding {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--color-text-black);
+    }
+
+    .selfIntroduction {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: var(--bg-color-light-purple);
+      white-space: pre-wrap;
+    }
+
+    .hobby {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: var(--bg-color-light-purple);
+      white-space: pre-wrap;
+    }
+  }
+}

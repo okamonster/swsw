@@ -1,10 +1,14 @@
-import { DefaultLayout } from '~/Layouts/SimpleLayout'
+import type { NextPage } from 'next'
+
+import { SimpleLayout } from '~/Layouts/SimpleLayout'
 import { TopContainer } from '~/features/top/TopContainer'
 
-export default function Home() {
+const Page: NextPage = () => {
   return (
-    <DefaultLayout>
+    <SimpleLayout>
       <TopContainer />
-    </DefaultLayout>
+    </SimpleLayout>
   )
 }
+
+export default Page

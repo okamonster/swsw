@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export const DefaultLayout = ({ children }: Props) => {
+export const SimpleLayout = ({ children }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>{children}</div>

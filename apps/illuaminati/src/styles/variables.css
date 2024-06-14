@@ -2,6 +2,9 @@
   /* bg-colors */
   --bg-color-white: #ffffff;
   --bg-color-pink: #fcdce0;
+  --bg-color-gray: #808080;
+  --bg-color-black: #333333;
+  --bg-color-light-purple: #dee1f1;
 
   /* theme colors */
   --color-primary: #f18d9a;
@@ -10,4 +13,11 @@
   /* text colors */
   --color-text-white: #ffffff;
   --color-text-black: #333333;
+  --color-text-purple: #ae83ce;
+
+  /* border colors */
+  --border-color-gray: #d3d3d3;
+
+  /* state colors */
+  --disabled-color: #838383;
 }
