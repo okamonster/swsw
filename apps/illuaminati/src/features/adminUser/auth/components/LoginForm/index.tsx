@@ -13,10 +13,10 @@ import type { LoginFormSchemaType } from '~/features/generalUser/auth/types'
 import { loginFormSchema } from '~/features/generalUser/auth/types'
 import { auth } from '~/libs/firebase'
 import { useToast } from '~/hooks/useToast'
-import { useAfterLogin } from '~/hooks/useAfterLogin'
+import { useAfterAdminLogin } from '~/hooks/useAfterAdminLogin'
 
 export const LoginForm = (): React.ReactNode => {
-  const afterLogin = useAfterLogin()
+  const afterLogin = useAfterAdminLogin()
   const { showErrorToast } = useToast()
   const {
     register,
