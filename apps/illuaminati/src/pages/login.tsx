@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import { SimpleLayout } from '~/Layouts/SimpleLayout'
-import { LoginContainer } from '~/features/auth/components/LoginContainer'
+import { LoginContainer } from '~/features/generalUser/auth/components/LoginContainer'
 
 const Page: NextPage = () => {
   return (

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import { SimpleLayout } from '~/Layouts/SimpleLayout'
-import { TopContainer } from '~/features/top/TopContainer'
+import { TopContainer } from '~/features/generalUser/top/TopContainer'
 
 const Page: NextPage = () => {
   return (
