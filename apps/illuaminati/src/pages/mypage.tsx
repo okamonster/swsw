@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import { DefaultLayout } from '~/Layouts/DefaultLayout'
-import { MypageContainer } from '~/features/profile/components/MypageContainer'
+import { MypageContainer } from '~/features/generalUser/profile/components/MypageContainer'
 
 const Page: NextPage = () => {
   return (

@@ -11,8 +11,8 @@ import { BaseButton } from '~/components/BaseButton'
 import {
   userProfileSchema,
   type UserProfileSchemaType,
-} from '~/features/profile/types'
-import { useCreateUserMutation } from '~/features/profile/hooks/useCreateUserMutation'
+} from '~/features/generalUser/profile/types'
+import { useCreateUserMutation } from '~/features/generalUser/profile/hooks/useCreateUserMutation'
 import { useToast } from '~/hooks/useToast'
 
 export const ProfileForm = (): React.ReactNode => {

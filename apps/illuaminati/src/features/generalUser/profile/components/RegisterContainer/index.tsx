@@ -1,6 +1,6 @@
 import styles from './style.module.css'
 
-import { ProfileForm } from '~/features/profile/components/ProfileForm'
+import { ProfileForm } from '~/features/generalUser/profile/components/ProfileForm'
 
 export const RegisterContainer = (): React.ReactNode => {
   return (

@@ -3,9 +3,9 @@ import { useDisclosure } from '@mantine/hooks'
 
 import styles from './style.module.css'
 
-import { IlluaminatiCard } from '~/features/profile/components/IlluaminatiCard'
+import { IlluaminatiCard } from '~/components/Cards/IlluaminatiCard'
 import { useMyUser } from '~/hooks/useMyUser'
-import { EditProfileModal } from '~/features/profile/components/EditProfileModal'
+import { EditProfileModal } from '~/features/generalUser/profile/components/EditProfileModal'
 
 export const MypageContainer = (): React.ReactNode => {
   const myUser = useMyUser()

@@ -5,14 +5,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import styles from './style.module.css'
 
-import { useUpdateUserMutation } from '~/features/profile/hooks/useUpdateUserMutation'
+import { useUpdateUserMutation } from '~/features/generalUser/profile/hooks/useUpdateUserMutation'
 import { ProfileImageInput } from '~/components/Inputs/ProfileImageInput'
 import { BaseButton } from '~/components/BaseButton'
 import {
   editUserProfileSchema,
   type EditUserProfileSchemaType,
   type UserProfileSchemaType,
-} from '~/features/profile/types'
+} from '~/features/generalUser/profile/types'
 import { useToast } from '~/hooks/useToast'
 import type { UpdateUserDto, User } from '~/types/entities/User'
 import { serverTimestamp } from '~/libs/firebase'

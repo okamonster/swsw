@@ -3,52 +3,48 @@ import { PasswordInput, TextInput } from '@mantine/core'
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'next/router'
 
 import styles from './style.module.css'
 
 import { BaseButton } from '~/components/BaseButton'
 import { LinkButton } from '~/components/LinkButton'
-import type { LoginFormSchemaType } from '~/features/auth/types'
-import { loginFormSchema } from '~/features/auth/types'
+import type { SignupFormSchemaType } from '~/features/generalUser/auth/types'
+import { signupFormSchema } from '~/features/generalUser/auth/types'
 import { auth } from '~/libs/firebase'
 import { useToast } from '~/hooks/useToast'
-import { useAfterLogin } from '~/hooks/useAfterLogin'
 
-export const LoginForm = (): React.ReactNode => {
-  const afterLogin = useAfterLogin()
+export const SignupForm = (): React.ReactNode => {
+  const { push } = useRouter()
   const { showErrorToast } = useToast()
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormSchemaType>({
+  } = useForm<SignupFormSchemaType>({
     defaultValues: {
       email: '',
       password: '',
     },
-    resolver: zodResolver(loginFormSchema),
+    resolver: zodResolver(signupFormSchema),
     mode: 'onSubmit',
   })
 
   const onSubmit = useCallback(
-    async (data: LoginFormSchemaType) => {
+    async (data: SignupFormSchemaType) => {
       try {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          data.email,
-          data.password,
-        )
-        await afterLogin(userCredential.user.uid)
+        await createUserWithEmailAndPassword(auth, data.email, data.password)
+        push('/register')
       } catch (error) {
-        showErrorToast('ログインに失敗しました')
+        showErrorToast('登録に失敗しました')
       }
     },
-    [afterLogin, showErrorToast],
+    [push, showErrorToast],
   )
 
   return (
-    <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
       <TextInput
         {...register('email')}
         placeholder="メールアドレス"
@@ -64,10 +60,10 @@ export const LoginForm = (): React.ReactNode => {
       />
 
       <div className={styles.actions}>
-        <BaseButton label="ログイン" radius="lg" />
+        <BaseButton label="登録" radius="lg" />
         <LinkButton label="もどる" href="/" radius="lg" variant="tertiary" />
-        <Link href="/signup" className={styles.signupLink}>
-          会員証をつくる
+        <Link href="/login" className={styles.loginLink}>
+          ログイン
         </Link>
       </div>
     </form>

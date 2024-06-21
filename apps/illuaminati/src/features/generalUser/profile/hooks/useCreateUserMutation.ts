@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import type { UserProfileSchemaType } from '~/features/profile/types'
+import type { UserProfileSchemaType } from '~/features/generalUser/profile/types'
 import { createUserOperation } from '~/infrastructure/operations/UserOperations'
 import { useAuthContext } from '~/providers/AuthProvider'
 import { serverTimestamp } from '~/libs/firebase'

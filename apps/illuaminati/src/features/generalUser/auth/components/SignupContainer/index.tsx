@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 import styles from './style.module.css'
 
-import { LoginForm } from '~/features/auth/components//LoginForm'
+import { SignupForm } from '~/features/generalUser/auth/components/SignupForm'
 
-export const LoginContainer = (): React.ReactNode => {
+export const SignupContainer = (): React.ReactNode => {
   return (
-    <div className={styles.loginContainer}>
+    <div className={styles.signupContainer}>
       <Image
         src="/images/svgs/swsw_logo.svg"
         width={300}
@@ -14,8 +14,8 @@ export const LoginContainer = (): React.ReactNode => {
         alt="スワンスワンズ"
         className={styles.logo}
       />
-      <h1 className={styles.title}>ログイン</h1>
-      <LoginForm />
+      <h1 className={styles.title}>サインアップ</h1>
+      <SignupForm />
     </div>
   )
 }

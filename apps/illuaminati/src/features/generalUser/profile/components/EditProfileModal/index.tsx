@@ -1,7 +1,7 @@
 import styles from './style.module.css'
 
 import { FullModal } from '~/components/Base/Modals/FullModal'
-import { EditProfileForm } from '~/features/profile/components/EditProfileForm'
+import { EditProfileForm } from '~/features/generalUser/profile/components/EditProfileForm'
 import { useMyUser } from '~/hooks/useMyUser'
 
 type Props = {
