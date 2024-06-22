@@ -9,7 +9,7 @@ const AuthContext = createContext<{
   uid: string | null
   currentUser: User | null | undefined
   isLogin: boolean
-  logout: () => Promise<void>
+  logout: (isAdmin?: boolean) => Promise<void>
 }>({
   uid: null,
   currentUser: null,

@@ -72,7 +72,7 @@ export const MypageContainer = (): React.ReactNode => {
             <BaseButton
               label="ログアウト"
               variant="tertiary"
-              onClick={logout}
+              onClick={() => logout(true)}
             />
           </div>
         </div>
