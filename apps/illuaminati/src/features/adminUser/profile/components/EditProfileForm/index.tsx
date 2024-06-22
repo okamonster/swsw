@@ -5,65 +5,68 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import styles from './style.module.css'
 
-import { useUpdateUserMutation } from '~/features/generalUser/profile/hooks/useUpdateUserMutation'
+import type { EditAdminUserProfileSchemaType } from '~/features/adminUser/profile/types'
+import { useUpdateAdminUserMutation } from '~/features/adminUser/profile/hooks/useUpdateAdminUserMutation'
 import { ProfileImageInput } from '~/components/Inputs/ProfileImageInput'
 import { BaseButton } from '~/components/BaseButton'
-import {
-  editUserProfileSchema,
-  type EditUserProfileSchemaType,
-  type UserProfileSchemaType,
-} from '~/features/generalUser/profile/types'
+import { editUserProfileSchema } from '~/features/generalUser/profile/types'
 import { useToast } from '~/hooks/useToast'
-import type { UpdateUserDto, User } from '~/types/entities/User'
 import { serverTimestamp } from '~/libs/firebase'
+import type { AdminUser, UpdateAdminUserDto } from '~/types/entities/AdminUser'
 
 type Props = {
-  myUser: User
+  myAdminUser: AdminUser
   onClose: () => void
 }
 
 export const EditProfileForm = ({
-  myUser,
+  myAdminUser,
   onClose,
 }: Props): React.ReactNode => {
   const { showSuccessToast, showErrorToast } = useToast()
-  const updateUser = useUpdateUserMutation()
+  const updateAdminUser = useUpdateAdminUserMutation()
 
   const {
     control,
     register,
     formState: { errors, isValid },
     getValues,
-  } = useForm<EditUserProfileSchemaType>({
+  } = useForm<EditAdminUserProfileSchemaType>({
     defaultValues: {
-      profileImagePath: myUser.profileImagePath,
-      displayName: myUser.displayName,
-      selfIntroduction: myUser.selfIntroduction,
-      hobby: myUser.hobby,
+      profileImagePath: myAdminUser.profileImagePath,
+      comment: myAdminUser.comment,
+      displayName: myAdminUser.displayName,
+      selfIntroduction: myAdminUser.selfIntroduction,
+      hobby: myAdminUser.hobby,
+      twitterId: myAdminUser.twitterId,
+      instagramId: myAdminUser.instagramId,
     },
     resolver: zodResolver(editUserProfileSchema),
     mode: 'all',
   })
 
   const onSubmit = useCallback(
-    async (data: UserProfileSchemaType) => {
+    async (data: EditAdminUserProfileSchemaType) => {
       try {
-        const dto: UpdateUserDto = {
+        const dto: UpdateAdminUserDto = {
+          comment: data.comment,
           displayName: data.displayName,
           selfIntroduction: data.selfIntroduction,
           hobby: data.hobby,
           profileImagePath: data.profileImagePath,
+          twitterId: data.twitterId,
+          instagramId: data.instagramId,
           updatedAt: serverTimestamp,
         }
 
-        await updateUser(dto)
+        await updateAdminUser(dto)
         showSuccessToast('ユーザー情報を更新しました')
         onClose()
       } catch (e) {
         showErrorToast('ユーザー情報の更新に失敗しました')
       }
     },
-    [onClose, showErrorToast, showSuccessToast, updateUser],
+    [onClose, showErrorToast, showSuccessToast, updateAdminUser],
   )
 
   return (
@@ -88,6 +91,13 @@ export const EditProfileForm = ({
         error={errors.displayName?.message}
       />
 
+      <TextInput
+        label="ひとことコメント"
+        placeholder="今の気持ちを一言"
+        {...register('comment')}
+        error={errors.comment?.message}
+      />
+
       <Textarea
         label="自己紹介"
         placeholder="自己紹介"
@@ -100,6 +110,19 @@ export const EditProfileForm = ({
         placeholder="趣味・好きなこと"
         {...register('hobby')}
         error={errors.hobby?.message}
+      />
+      <TextInput
+        label="TwitterId"
+        placeholder="今の気持ちを一言"
+        {...register('twitterId')}
+        error={errors.twitterId?.message}
+      />
+
+      <TextInput
+        label="instagramId"
+        placeholder="今の気持ちを一言"
+        {...register('instagramId')}
+        error={errors.instagramId?.message}
       />
 
       <BaseButton

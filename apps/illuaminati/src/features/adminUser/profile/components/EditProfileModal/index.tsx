@@ -1,8 +1,8 @@
 import styles from './style.module.css'
 
 import { FullModal } from '~/components/Base/Modals/FullModal'
-import { EditProfileForm } from '~/features/generalUser/profile/components/EditProfileForm'
-import { useMyUser } from '~/hooks/useMyUser'
+import { EditProfileForm } from '~/features/adminUser/profile/components/EditProfileForm'
+import { useMyAdminUser } from '~/hooks/useMyAdminUser'
 
 type Props = {
   isOpen: boolean
@@ -10,13 +10,13 @@ type Props = {
 }
 
 export const EditProfileModal = ({ isOpen, onClose }: Props) => {
-  const myUser = useMyUser()
+  const myAdminUser = useMyAdminUser()
 
   return (
-    myUser && (
+    myAdminUser && (
       <FullModal isOpen={isOpen} onClose={onClose} title="プロフィールを編集">
         <div className={styles.formContainer}>
-          <EditProfileForm myUser={myUser} onClose={onClose} />
+          <EditProfileForm myAdminUser={myAdminUser} onClose={onClose} />
         </div>
       </FullModal>
     )

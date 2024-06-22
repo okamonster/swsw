@@ -19,6 +19,7 @@ export type AdminUserProfileSchemaType = z.infer<typeof adminUserProfileSchema>
 
 export const editAdminUserProfileSchema = z.object({
   profileImagePath: z.string().min(1, { message: '画像を選択してください' }),
+  comment: z.string().max(50, { message: '50文字以内で入力してください' }),
   displayName: z
     .string()
     .min(1, { message: '名前を入力してください' })
@@ -27,6 +28,8 @@ export const editAdminUserProfileSchema = z.object({
     .string()
     .max(200, { message: '自己紹介は100文字以内で入力してください' }),
   hobby: z.string().max(20, { message: '趣味は20文字以内で入力してください' }),
+  twitterId: z.string().max(30, { message: '30文字以内で入力してください' }),
+  instagramId: z.string().max(30, { message: '30文字以内で入力してください' }),
 })
 
 export type EditAdminUserProfileSchemaType = z.infer<
