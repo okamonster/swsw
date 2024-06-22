@@ -1,19 +1,15 @@
 import Image from 'next/image'
+import { useMemo } from 'react'
 
 import styles from './style.module.css'
 
 import type { User } from '~/types/entities/User'
-import { useMemo } from 'react'
 
 type Props = {
   myUser: User
 }
 
 export const IlluaminatiCard = ({ myUser }: Props) => {
-  const userType = useMemo(() => {
-    return
-  }, [])
-
   return (
     <div className={styles.illuaminatiCard}>
       <h1 className={styles.title}>イルアミナティカード</h1>
