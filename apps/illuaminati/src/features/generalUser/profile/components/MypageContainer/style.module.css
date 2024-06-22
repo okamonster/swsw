@@ -16,7 +16,7 @@
   }
 
   .share {
-    padding: 20px;
+    padding: 18px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -58,8 +58,9 @@
     .actions {
       display: flex;
       gap: 10px;
+
       .displayName {
-        font-size: 30px;
+        font-size: 18px;
         font-weight: bold;
         color: var(--color-text-black);
       }
@@ -69,31 +70,31 @@
         border: solid 2px var(--color-text-purple);
         color: var(--color-text-purple);
         border-radius: 30px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: bold;
+        height: 40px;
       }
     }
 
     .heding {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       color: var(--color-text-black);
     }
 
-    .selfIntroduction {
-      font-size: 16px;
+    .bubble {
+      font-size: 14px;
       padding: 10px;
       border-radius: 6px;
       background-color: var(--bg-color-light-purple);
       white-space: pre-wrap;
     }
+  }
 
-    .hobby {
-      font-size: 16px;
-      padding: 10px;
-      border-radius: 6px;
-      background-color: var(--bg-color-light-purple);
-      white-space: pre-wrap;
-    }
+  .actionItems {
+    margin-top: 20px;
+    border-top: solid 1px var(--border-color-gray);
+    padding: 20px;
+    width: 100%;
   }
 }
