@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { useMemo } from 'react'
 
 import styles from './style.module.css'
 
