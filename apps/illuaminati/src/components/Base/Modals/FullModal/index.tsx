@@ -38,7 +38,12 @@ export const FullModal = ({
       <div className={styles.fullModalHeader}>
         {!hideCloseButton && (
           <div className={styles.close}>
-            <IconButton icon={<IoMdClose size={24} />} onClick={onClose} />
+            <IconButton
+              size={40}
+              icon={<IoMdClose size={24} />}
+              onClick={onClose}
+              backgroundColor="transparent"
+            />
           </div>
         )}
         <h2 className={styles.title}>{title}</h2>
