@@ -67,8 +67,8 @@
 
       .editButton {
         background-color: var(--bg-color-white);
-        border: solid 2px var(--color-text-purple);
-        color: var(--color-text-purple);
+        color: var(--color-text-black);
+        border: solid 2px var(--color-text-black);
         border-radius: 30px;
         font-size: 12px;
         font-weight: bold;
