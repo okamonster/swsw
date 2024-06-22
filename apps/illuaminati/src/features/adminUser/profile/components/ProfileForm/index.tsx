@@ -8,15 +8,23 @@ import styles from './style.module.css'
 
 import { ProfileImageInput } from '~/components/Inputs/ProfileImageInput'
 import { BaseButton } from '~/components/BaseButton'
-import {
-  userProfileSchema,
-  type UserProfileSchemaType,
-} from '~/features/generalUser/profile/types'
-import { useCreateUserMutation } from '~/features/generalUser/profile/hooks/useCreateUserMutation'
 import { useToast } from '~/hooks/useToast'
+import {
+  AdminUserProfileSchemaType,
+  adminUserProfileSchema,
+} from '~/features/adminUser/profile/types'
+import { useCreateAdminUserMutation } from '~/features/adminUser/profile/hooks/useCreateAdminUserMutation'
+import { AdminUser, CreateAdminUserDto } from '~/types/entities/AdminUser'
+import { serverTimestamp } from '~/libs/firebase'
+import { useAuthContext } from '~/providers/AuthProvider'
 
-export const ProfileForm = (): React.ReactNode => {
-  const createUser = useCreateUserMutation()
+type Props = {
+  defaultValues: AdminUser
+}
+
+export const ProfileForm = ({ defaultValues }: Props): React.ReactNode => {
+  const { currentUser } = useAuthContext()
+  const createAdminUser = useCreateAdminUserMutation()
   const { showSuccessToast, showErrorToast } = useToast()
   const { push } = useRouter()
 
@@ -25,28 +33,44 @@ export const ProfileForm = (): React.ReactNode => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserProfileSchemaType>({
+  } = useForm<AdminUserProfileSchemaType>({
     defaultValues: {
-      profileImagePath: '',
-      displayName: '',
-      selfIntroduction: '',
-      hobby: '',
+      profileImagePath: defaultValues.profileImagePath,
+      displayName: defaultValues.displayName,
+      selfIntroduction: defaultValues.selfIntroduction,
+      hobby: defaultValues.hobby,
+      username: defaultValues.username,
     },
-    resolver: zodResolver(userProfileSchema),
+    resolver: zodResolver(adminUserProfileSchema),
     mode: 'onSubmit',
   })
 
   const onSubmit = useCallback(
-    async (data: UserProfileSchemaType) => {
+    async (data: AdminUserProfileSchemaType) => {
       try {
-        await createUser(data)
+        const adminUserDto: CreateAdminUserDto = {
+          adminType: defaultValues?.adminType ?? '',
+          createdAt: serverTimestamp,
+          comment: '',
+          displayName: data.displayName,
+          email: currentUser?.email ?? '',
+          hobby: data.hobby,
+          profileImagePath: data.profileImagePath,
+          selfIntroduction: data.selfIntroduction,
+          twitterId: defaultValues?.twitterId ?? '',
+          instagramId: defaultValues?.instagramId ?? '',
+          updatedAt: serverTimestamp,
+          username: data.username,
+        }
+
+        await createAdminUser(adminUserDto)
         showSuccessToast('ユーザーを作成しました')
-        push('/home')
+        push('/swanswansAdmin/home')
       } catch (e) {
         showErrorToast('ユーザーの作成に失敗しました')
       }
     },
-    [createUser, push, showErrorToast, showSuccessToast],
+    [createAdminUser, push, showErrorToast, showSuccessToast],
   )
 
   return (
@@ -83,6 +107,13 @@ export const ProfileForm = (): React.ReactNode => {
         placeholder="趣味・好きなこと"
         {...register('hobby')}
         error={errors.hobby?.message}
+      />
+
+      <TextInput
+        label="ユーザーID"
+        error={errors.username?.message}
+        {...register('username')}
+        disabled
       />
 
       <BaseButton type="submit" variant="primary" label="登録" radius="lg" />
