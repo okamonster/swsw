@@ -113,14 +113,14 @@ export const EditProfileForm = ({
       />
       <TextInput
         label="TwitterId"
-        placeholder="今の気持ちを一言"
+        placeholder="TwitterIdを入力"
         {...register('twitterId')}
         error={errors.twitterId?.message}
       />
 
       <TextInput
         label="instagramId"
-        placeholder="今の気持ちを一言"
+        placeholder="instagramIdを入力"
         {...register('instagramId')}
         error={errors.instagramId?.message}
       />
