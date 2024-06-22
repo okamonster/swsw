@@ -88,6 +88,13 @@
       white-space: pre-wrap;
     }
   }
+
+  .actionItems {
+    margin-top: 20px;
+    border-top: solid 1px var(--border-color-gray);
+    padding: 20px;
+    width: 100%;
+  }
 }
 
 ._developer {

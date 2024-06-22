@@ -8,11 +8,14 @@ import { useAdminUserType } from '~/features/adminUser/profile/hooks/useUserType
 import { EditProfileModal } from '~/features/adminUser/profile/components/EditProfileModal'
 import { useMyAdminUser } from '~/hooks/useMyAdminUser'
 import { AdminIlluaminatiCard } from '~/components/Cards/AdminIlluaminatiCard'
+import { BaseButton } from '~/components/BaseButton'
+import { useAuthContext } from '~/providers/AuthProvider'
 
 export const MypageContainer = (): React.ReactNode => {
   const myAdminUser = useMyAdminUser()
   const [isOpen, handlers] = useDisclosure()
   const userType = useAdminUserType(myAdminUser)
+  const { logout } = useAuthContext()
 
   const cardWrapperClass = classNames(
     styles.cardWrapper,
@@ -56,6 +59,14 @@ export const MypageContainer = (): React.ReactNode => {
             <p className={bubbleClass}>{myAdminUser?.selfIntroduction}</p>
             <h2 className={styles.heding}>趣味</h2>
             <p className={bubbleClass}>{myAdminUser?.hobby}</p>
+          </div>
+
+          <div className={styles.actionItems}>
+            <BaseButton
+              label="ログアウト"
+              variant="tertiary"
+              onClick={logout}
+            />
           </div>
         </div>
         <EditProfileModal isOpen={isOpen} onClose={handlers.close} />

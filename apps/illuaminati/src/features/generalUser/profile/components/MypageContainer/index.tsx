@@ -6,10 +6,13 @@ import styles from './style.module.css'
 import { IlluaminatiCard } from '~/components/Cards/IlluaminatiCard'
 import { useMyUser } from '~/hooks/useMyUser'
 import { EditProfileModal } from '~/features/generalUser/profile/components/EditProfileModal'
+import { BaseButton } from '~/components/BaseButton'
+import { useAuthContext } from '~/providers/AuthProvider'
 
 export const MypageContainer = (): React.ReactNode => {
   const myUser = useMyUser()
   const [isOpen, handlers] = useDisclosure()
+  const { logout } = useAuthContext()
 
   return (
     myUser && (
@@ -38,6 +41,13 @@ export const MypageContainer = (): React.ReactNode => {
             <p className={styles.bubble}>{myUser?.selfIntroduction}</p>
             <h2 className={styles.heding}>趣味</h2>
             <p className={styles.buble}>{myUser?.hobby}</p>
+          </div>
+          <div className={styles.actionItems}>
+            <BaseButton
+              label="ログアウト"
+              variant="tertiary"
+              onClick={logout}
+            />
           </div>
         </div>
         <EditProfileModal isOpen={isOpen} onClose={handlers.close} />
