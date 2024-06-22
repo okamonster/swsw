@@ -2,6 +2,7 @@
   /* bg-colors */
   --bg-color-white: #ffffff;
   --bg-color-pink: #fcdce0;
+  --bg-color-blue: #ddeefa;
   --bg-color-gray: #808080;
   --bg-color-black: #333333;
   --bg-color-light-purple: #dee1f1;
@@ -20,4 +21,9 @@
 
   /* state colors */
   --disabled-color: #838383;
+
+  /* card colors */
+  --color-card-pink: #ffb7ce;
+  --color-card-blue: #a2cffe;
+  --color-card-black: #101010;
 }
