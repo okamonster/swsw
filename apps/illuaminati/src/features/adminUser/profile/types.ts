@@ -1,5 +1,6 @@
 import { z } from 'zod'
-import { AdminUser } from '~/types/entities/AdminUser'
+
+import type { AdminUser } from '~/types/entities/AdminUser'
 
 export const adminUserProfileSchema = z.object({
   profileImagePath: z.string().min(1, { message: '画像を選択してください' }),
