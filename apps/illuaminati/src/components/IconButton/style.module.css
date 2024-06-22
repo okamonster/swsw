@@ -1,6 +1,8 @@
 .iconButton {
-  background-color: transparent;
-  border: none;
-  color: var(--color-border-gray);
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

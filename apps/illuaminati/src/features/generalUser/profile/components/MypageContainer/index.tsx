@@ -8,6 +8,7 @@ import { useMyUser } from '~/hooks/useMyUser'
 import { EditProfileModal } from '~/features/generalUser/profile/components/EditProfileModal'
 import { BaseButton } from '~/components/BaseButton'
 import { useAuthContext } from '~/providers/AuthProvider'
+import { IconButton } from '~/components/IconButton'
 
 export const MypageContainer = (): React.ReactNode => {
   const myUser = useMyUser()
@@ -24,9 +25,12 @@ export const MypageContainer = (): React.ReactNode => {
           <div className={styles.share}>
             <h1 className={styles.title}>SNSでシェア</h1>
             <div className={styles.buttonList}>
-              <button className={styles.twitter}>
-                <FaXTwitter size={20} color="var(--color-text-white)" />
-              </button>
+              <IconButton
+                size={35}
+                backgroundColor="var(--bg-color-black)"
+                onClick={() => {}}
+                icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
+              />
             </div>
           </div>
 

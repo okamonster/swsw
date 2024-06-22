@@ -2,12 +2,27 @@ import styles from './style.module.css'
 
 type Props = {
   icon: React.ReactNode
+  backgroundColor: string
   onClick: () => void
+  size: number
 }
 
-export const IconButton = ({ icon, onClick }: Props): React.ReactNode => {
+export const IconButton = ({
+  icon,
+  onClick,
+  backgroundColor,
+  size,
+}: Props): React.ReactNode => {
   return (
-    <button className={styles.iconButton} onClick={onClick}>
+    <button
+      className={styles.iconButton}
+      onClick={onClick}
+      style={{
+        backgroundColor,
+        width: size,
+        height: size,
+      }}
+    >
       {icon}
     </button>
   )
