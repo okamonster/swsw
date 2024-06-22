@@ -21,6 +21,13 @@
     flex-direction: column;
     gap: 10px;
 
+    .bubble {
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+
     .title {
       font-weight: bold;
       font-size: 18px;

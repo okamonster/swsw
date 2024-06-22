@@ -39,7 +39,14 @@ export const MypageContainer = (): React.ReactNode => {
           <div className={cardWrapperClass}>
             <AdminIlluaminatiCard user={myAdminUser} userType={userType} />
           </div>
+
           <div className={styles.share}>
+            <p className={styles.title}>ひとことコメント</p>
+            {myAdminUser.comment && (
+              <>
+                <p className={bubbleClass}>{myAdminUser?.comment}</p>
+              </>
+            )}
             <h1 className={styles.title}>SNSでシェア</h1>
             <div className={styles.buttonList}>
               <button className={styles.twitter}>
