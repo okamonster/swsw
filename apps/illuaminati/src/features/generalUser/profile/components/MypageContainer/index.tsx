@@ -44,7 +44,7 @@ export const MypageContainer = (): React.ReactNode => {
             <h2 className={styles.heding}>自己紹介</h2>
             <p className={styles.bubble}>{myUser?.selfIntroduction}</p>
             <h2 className={styles.heding}>趣味</h2>
-            <p className={styles.buble}>{myUser?.hobby}</p>
+            <p className={styles.bubble}>{myUser?.hobby}</p>
           </div>
           <div className={styles.actionItems}>
             <BaseButton
