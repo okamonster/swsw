@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
+
 import { isExistAdminUserByIdOperation } from '~/infrastructure/operations/AdminUserOperations'
-import { AdminUserId } from '~/types/entities/AdminUser'
+import type { AdminUserId } from '~/types/entities/AdminUser'
 
 export const useAfterAdminLogin = () => {
   const { push } = useRouter()

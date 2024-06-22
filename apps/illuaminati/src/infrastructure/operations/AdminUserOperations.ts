@@ -2,13 +2,13 @@ import type { Unsubscribe } from 'firebase/firestore'
 import { doc, getDoc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
 
 import { db } from '~/libs/firebase'
-import {
+import type {
   AdminUserId,
-  adminUserCollection,
   CreateAdminUserDto,
   UpdateAdminUserDto,
   AdminUser,
 } from '~/types/entities/AdminUser'
+import { adminUserCollection } from '~/types/entities/AdminUser'
 import { convertDate } from '~/utils/convertDate'
 
 const dateColumns = ['createdAt', 'updatedAt']

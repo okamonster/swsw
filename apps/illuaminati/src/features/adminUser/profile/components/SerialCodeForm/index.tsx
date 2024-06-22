@@ -1,14 +1,14 @@
 import { TextInput } from '@mantine/core'
-import { BaseButton } from '~/components/BaseButton'
-import styles from './style.module.css'
 import { useForm } from 'react-hook-form'
 import { useCallback } from 'react'
-import {
-  AdminUserProfileSchemaType,
-  SerialCodeSchemaType,
-  serialCodeSchema,
-} from '~/features/adminUser/profile/types'
 import { zodResolver } from '@hookform/resolvers/zod'
+
+import styles from './style.module.css'
+
+import type { SerialCodeSchemaType } from '~/features/adminUser/profile/types'
+import { serialCodeSchema } from '~/features/adminUser/profile/types'
+import { BaseButton } from '~/components/BaseButton'
+import { useToast } from '~/hooks/useToast'
 
 type Props = {
   next: () => void
@@ -19,6 +19,7 @@ export const SerialCodeForm = ({
   next,
   confirmSerialCode,
 }: Props): React.ReactNode => {
+  const { showErrorToast } = useToast()
   const {
     register,
     getValues,
@@ -29,12 +30,17 @@ export const SerialCodeForm = ({
     mode: 'all',
   })
 
-  const onSubmit = useCallback(async (data: SerialCodeSchemaType) => {
-    try {
-      await confirmSerialCode(data.serialCode)
-      next()
-    } catch (err) {}
-  }, [])
+  const onSubmit = useCallback(
+    async (data: SerialCodeSchemaType) => {
+      try {
+        await confirmSerialCode(data.serialCode)
+        next()
+      } catch (err) {
+        showErrorToast('認証に失敗しました')
+      }
+    },
+    [confirmSerialCode, next, showErrorToast],
+  )
 
   return (
     <div className={styles.serialCodeForm}>

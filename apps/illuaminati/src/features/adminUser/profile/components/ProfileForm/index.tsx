@@ -9,12 +9,10 @@ import styles from './style.module.css'
 import { ProfileImageInput } from '~/components/Inputs/ProfileImageInput'
 import { BaseButton } from '~/components/BaseButton'
 import { useToast } from '~/hooks/useToast'
-import {
-  AdminUserProfileSchemaType,
-  adminUserProfileSchema,
-} from '~/features/adminUser/profile/types'
+import type { AdminUserProfileSchemaType } from '~/features/adminUser/profile/types'
+import { adminUserProfileSchema } from '~/features/adminUser/profile/types'
 import { useCreateAdminUserMutation } from '~/features/adminUser/profile/hooks/useCreateAdminUserMutation'
-import { AdminUser, CreateAdminUserDto } from '~/types/entities/AdminUser'
+import type { AdminUser, CreateAdminUserDto } from '~/types/entities/AdminUser'
 import { serverTimestamp } from '~/libs/firebase'
 import { useAuthContext } from '~/providers/AuthProvider'
 
@@ -70,7 +68,16 @@ export const ProfileForm = ({ defaultValues }: Props): React.ReactNode => {
         showErrorToast('ユーザーの作成に失敗しました')
       }
     },
-    [createAdminUser, push, showErrorToast, showSuccessToast],
+    [
+      createAdminUser,
+      currentUser?.email,
+      defaultValues?.adminType,
+      defaultValues?.instagramId,
+      defaultValues?.twitterId,
+      push,
+      showErrorToast,
+      showSuccessToast,
+    ],
   )
 
   return (

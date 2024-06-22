@@ -1,8 +1,8 @@
-import { useSerialCode } from '../../hooks/useSerialCode'
-import { useSteps } from '../../hooks/useSteps'
-import { SerialCodeForm } from '../SerialCodeForm'
 import styles from './style.module.css'
 
+import { useSerialCode } from '~/features/adminUser/profile/hooks/useSerialCode'
+import { useSteps } from '~/features/adminUser/profile/hooks/useSteps'
+import { SerialCodeForm } from '~/features/adminUser/profile/components/SerialCodeForm'
 import { ProfileForm } from '~/features/adminUser/profile/components/ProfileForm'
 
 export const RegisterContainer = (): React.ReactNode => {
