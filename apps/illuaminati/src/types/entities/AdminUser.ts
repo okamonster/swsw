@@ -4,7 +4,7 @@ export type AdminType = 'swanswans' | 'developer'
 
 export type AdminUserId = string
 
-export type AdminUserName = 'swsw-01' | 'swsw-02' | 'dev-01'
+export type AdminUserName = string
 
 export const adminUserCollection = 'adminUsers'
 
