@@ -33,6 +33,7 @@
       width: 80px;
       height: 80px;
       border: solid 1px var(--border-color-gray);
+      object-fit: cover;
     }
 
     .displayName {
