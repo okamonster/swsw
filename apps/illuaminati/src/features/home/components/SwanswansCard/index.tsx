@@ -35,7 +35,8 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
           {user.comment && <p className={bubbleClass}>{user.comment}</p>}
         </div>
       </div>
-      <div className={styles.actions}>
+
+      <div className={styles.actionLinks}>
         <IconButton
           icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
           backgroundColor="var(--bg-color-black)"
