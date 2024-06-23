@@ -1,0 +1,62 @@
+.swanswansCard {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: solid 1px var(--border-color-gray);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  gap: 10px;
+
+  .userProfile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .profileImage {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border: solid 1px var(--border-color-gray);
+      object-fit: cover;
+    }
+
+    .profileDetail {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+
+      .displayName {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--color-text-black);
+      }
+
+      .bubble {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 6px;
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .snsList {
+      display: flex;
+    }
+  }
+}
+
+._ami {
+  background-color: var(--bg-color-pink);
+}
+
+._akari {
+  background-color: var(--bg-color-blue);
+}

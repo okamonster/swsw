@@ -1,5 +1,14 @@
 import type { Unsubscribe } from 'firebase/firestore'
-import { doc, getDoc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
+import {
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+} from 'firebase/firestore'
 
 import { db } from '~/libs/firebase'
 import type {
@@ -7,6 +16,7 @@ import type {
   CreateAdminUserDto,
   UpdateAdminUserDto,
   AdminUser,
+  AdminType,
 } from '~/types/entities/AdminUser'
 import { adminUserCollection } from '~/types/entities/AdminUser'
 import { convertDate } from '~/utils/convertDate'
@@ -18,6 +28,31 @@ export const createAdminUserOperation = async (
   dto: CreateAdminUserDto,
 ): Promise<void> => {
   await setDoc(doc(db, adminUserCollection, userId), { ...dto })
+}
+
+export const subscribeAdminUsersByAdminTypeOperation = (
+  setter: (data: Array<AdminUser>) => void,
+  adminType: AdminType,
+): Unsubscribe => {
+  const unsubscribe = onSnapshot(
+    query(
+      collection(db, adminUserCollection),
+      where('adminType', '==', adminType),
+    ),
+    (snapshot) => {
+      const users = snapshot.docs.map((doc) => {
+        const data = doc.data()
+        return {
+          adminUserId: doc.id,
+          ...convertDate(data, dateColumns),
+        } as AdminUser
+      })
+
+      return setter(users)
+    },
+  )
+
+  return unsubscribe
 }
 
 export const subscribeAdminUserByIdOperation = (
