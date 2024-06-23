@@ -36,7 +36,21 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
         </div>
       </div>
 
-      <div className={styles.actionLinks}></div>
+      <div className={styles.actionLinks}>
+        <IconButton
+          icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
+          backgroundColor="var(--bg-color-black)"
+          onClick={() => {}}
+          size={40}
+        />
+
+        <IconButton
+          icon={<FaInstagram size={20} color="var(--color-text-white)" />}
+          backgroundColor="#DD2A7B"
+          onClick={() => {}}
+          size={40}
+        />
+      </div>
     </div>
   )
 }
