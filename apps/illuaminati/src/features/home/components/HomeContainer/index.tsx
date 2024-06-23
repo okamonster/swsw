@@ -4,7 +4,6 @@ import Link from 'next/link'
 import styles from './style.module.css'
 
 import { useSwanswans } from '~/features/home/hooks/useSwanswans'
-import { SwanswansCard } from '~/features/home/components/SwanswansCard'
 
 export const HomeContainer = (): React.ReactNode => {
   const swanswans = useSwanswans()
@@ -26,11 +25,7 @@ export const HomeContainer = (): React.ReactNode => {
           />
         </Link>
       </div>
-      <div className={styles.swanswansList}>
-        {swanswans.map((user) => (
-          <SwanswansCard user={user} key={user.adminUserId} />
-        ))}
-      </div>
+      <div className={styles.swanswansList}></div>
     </div>
   )
 }
