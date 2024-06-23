@@ -1,12 +1,10 @@
 .swanswansCard {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: solid 1px var(--border-color-gray);
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   gap: 10px;
-  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px var(--border-color-gray);
 
   .userProfile {
     display: flex;

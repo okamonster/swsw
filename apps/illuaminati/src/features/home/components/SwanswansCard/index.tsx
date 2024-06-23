@@ -43,13 +43,6 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
           onClick={() => {}}
           size={40}
         />
-
-        <IconButton
-          icon={<FaInstagram size={20} color="var(--color-text-white)" />}
-          backgroundColor="#DD2A7B"
-          onClick={() => {}}
-          size={40}
-        />
       </div>
     </div>
   )
