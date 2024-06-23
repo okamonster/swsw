@@ -87,6 +87,7 @@
       padding: 10px;
       border-radius: 6px;
       white-space: pre-wrap;
+      background-color: var(--bg-color-light-purple);
     }
   }
 
