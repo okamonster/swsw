@@ -10,8 +10,8 @@
 
   .userProfile {
     display: flex;
-    flex-direction: row;
     gap: 10px;
+    flex-direction: row;
 
     .profileImage {
       border-radius: 50%;
@@ -39,6 +39,17 @@
         border-radius: 6px;
         white-space: pre-wrap;
       }
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .snsList {
+      display: flex;
+      gap: 10px;
     }
   }
 }
