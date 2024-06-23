@@ -63,7 +63,7 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
             />
           </Link>
         </div>
-        <BaseButton label="カードを見る" variant="primary" width="100%" />
+        <BaseButton label="カードを見る" variant="primary" />
       </div>
     </div>
   )
