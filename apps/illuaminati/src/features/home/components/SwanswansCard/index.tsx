@@ -36,30 +36,19 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
         </div>
       </div>
       <div className={styles.actions}>
-        <Link
-          href={`https://x.com/${user.twitterId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IconButton
-            icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
-            backgroundColor="var(--bg-color-black)"
-            onClick={() => {}}
-            size={40}
-          />
-        </Link>
-        <Link
-          href={`https://www.instagram.com/${user.instagramId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IconButton
-            icon={<FaInstagram size={20} color="var(--color-text-white)" />}
-            backgroundColor="#DD2A7B"
-            onClick={() => {}}
-            size={40}
-          />
-        </Link>
+        <IconButton
+          icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
+          backgroundColor="var(--bg-color-black)"
+          onClick={() => {}}
+          size={40}
+        />
+
+        <IconButton
+          icon={<FaInstagram size={20} color="var(--color-text-white)" />}
+          backgroundColor="#DD2A7B"
+          onClick={() => {}}
+          size={40}
+        />
       </div>
     </div>
   )
