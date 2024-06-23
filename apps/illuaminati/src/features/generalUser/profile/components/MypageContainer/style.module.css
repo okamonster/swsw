@@ -58,7 +58,6 @@
     .actions {
       display: flex;
       gap: 10px;
-      width: 100%;
 
       .displayName {
         font-size: 18px;
@@ -87,7 +86,6 @@
       font-size: 14px;
       padding: 10px;
       border-radius: 6px;
-      background-color: var(--bg-color-light-purple);
       white-space: pre-wrap;
     }
   }
