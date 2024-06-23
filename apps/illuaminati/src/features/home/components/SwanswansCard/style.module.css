@@ -46,11 +46,6 @@
     display: flex;
     gap: 10px;
     align-items: center;
-
-    .snsList {
-      display: flex;
-      gap: 10px;
-    }
   }
 }
 
