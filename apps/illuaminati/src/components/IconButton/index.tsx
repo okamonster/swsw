@@ -14,16 +14,17 @@ export const IconButton = ({
   size,
 }: Props): React.ReactNode => {
   return (
-    <button
-      className={styles.iconButton}
-      onClick={onClick}
-      style={{
-        backgroundColor,
-        width: size,
-        height: size,
-      }}
-    >
-      {icon}
+    <button className={styles.iconButton} onClick={onClick}>
+      <div
+        className={styles.icon}
+        style={{
+          backgroundColor,
+          width: size,
+          height: size,
+        }}
+      >
+        {icon}
+      </div>
     </button>
   )
 }

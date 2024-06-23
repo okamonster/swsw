@@ -1,7 +1,11 @@
 .iconButton {
   cursor: pointer;
-  border-radius: 50%;
+  background-color: transparent;
   border: none;
+}
+
+.icon {
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
