@@ -25,7 +25,6 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      width: 100%;
 
       .displayName {
         font-size: 16px;
@@ -40,16 +39,6 @@
         border-radius: 6px;
         white-space: pre-wrap;
       }
-    }
-  }
-
-  .actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-
-    .snsList {
-      display: flex;
     }
   }
 }
