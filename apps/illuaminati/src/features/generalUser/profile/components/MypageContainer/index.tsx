@@ -42,9 +42,9 @@ export const MypageContainer = (): React.ReactNode => {
               </button>
             </div>
 
-            <h2 className={styles.heding}>自己紹介</h2>
+            <h2 className={styles.heading}>自己紹介</h2>
             <p className={styles.bubble}>{myUser?.selfIntroduction}</p>
-            <h2 className={styles.heding}>趣味</h2>
+            <h2 className={styles.heading}>趣味</h2>
             <p className={styles.bubble}>{myUser?.hobby}</p>
           </div>
           <div className={styles.actionItems}>
