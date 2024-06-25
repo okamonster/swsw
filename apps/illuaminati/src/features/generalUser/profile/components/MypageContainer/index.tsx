@@ -37,7 +37,9 @@ export const MypageContainer = (): React.ReactNode => {
           <div className={styles.userProfile}>
             <div className={styles.actions}>
               <h1 className={styles.userName}>{myUser.displayName}</h1>
-              <button className={styles.editButton}>プロフィールを編集</button>
+              <button className={styles.editButton} onClick={handlers.open}>
+                プロフィールを編集
+              </button>
             </div>
 
             <h2 className={styles.heding}>自己紹介</h2>
