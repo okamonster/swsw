@@ -41,14 +41,24 @@
     flex-direction: column;
     gap: 10px;
 
-    .actions {
+    .profileAction {
       display: flex;
       gap: 10px;
+      align-items: center;
 
       .displayName {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
+      }
+
+      .editButton {
+        background-color: var(--bg-color-white);
         color: var(--color-text-black);
+        border: solid 2px var(--color-text-black);
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 40px;
       }
     }
 
