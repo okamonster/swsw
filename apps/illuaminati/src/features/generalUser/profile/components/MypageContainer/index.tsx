@@ -36,14 +36,15 @@ export const MypageContainer = (): React.ReactNode => {
 
           <div className={styles.userProfile}>
             <div className={styles.actions}>
-              <h1 className={styles.displayName}>{myUser?.displayName}</h1>
+              <h1 className={styles.userName}>{myUser.displayName}</h1>
               <button className={styles.editButton} onClick={handlers.open}>
                 プロフィールを編集
               </button>
             </div>
-            <h2 className={styles.heding}>自己紹介</h2>
+
+            <h2 className={styles.heading}>自己紹介</h2>
             <p className={styles.bubble}>{myUser?.selfIntroduction}</p>
-            <h2 className={styles.heding}>趣味</h2>
+            <h2 className={styles.heading}>趣味</h2>
             <p className={styles.bubble}>{myUser?.hobby}</p>
           </div>
           <div className={styles.actionItems}>
