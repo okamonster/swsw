@@ -35,7 +35,7 @@ export const MypageContainer = (): React.ReactNode => {
           </div>
 
           <div className={styles.userProfile}>
-            <div className={styles.profileAction}>
+            <div className={styles.actions}>
               <h1 className={styles.userName}>{myUser.displayName}</h1>
               <button className={styles.editButton}>プロフィールを編集</button>
             </div>
