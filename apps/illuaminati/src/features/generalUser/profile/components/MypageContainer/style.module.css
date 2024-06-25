@@ -12,4 +12,23 @@
     background-color: var(--bg-color-light-purple);
     border-bottom: solid 1px var(--border-color-gray);
   }
+
+  .share {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--color-text-black);
+    }
+
+    .buttonList {
+      display: flex;
+      gap: 10px;
+    }
+  }
 }
