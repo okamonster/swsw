@@ -14,7 +14,6 @@ module.exports = {
     'plugin:import/typescript',
     'prettier',
     require.resolve('@vercel/style-guide/eslint/next'),
-    'eslint-config-turbo',
   ],
   globals: {
     React: true,
