@@ -1,7 +1,9 @@
 import { TextInput } from '@mantine/core'
-import styles from './style.module.css'
 import { useForm } from 'react-hook-form'
-import { useSearchUsers } from '../../hooks/useSearchUsers'
+
+import styles from './style.module.css'
+
+import { useSearchUsers } from '~/features/adminUser/search/hooks/useSearchUsers'
 
 export const SearchContainer = (): React.ReactNode => {
   const { register, watch } = useForm({ defaultValues: { search: '' } })
