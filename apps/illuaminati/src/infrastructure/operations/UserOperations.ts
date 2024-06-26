@@ -36,7 +36,7 @@ export const createUserOperation = async (
 export const subscribeUsersByDisplayNameOperation = (
   displayName: string,
   setter: (data: Array<User>) => void,
-) => {
+): Unsubscribe => {
   const unsubscribe = onSnapshot(
     query(
       collection(db, userCollection),
