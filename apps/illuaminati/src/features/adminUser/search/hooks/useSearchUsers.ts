@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+
 import { subscribeUsersByDisplayNameOperation } from '~/infrastructure/operations/UserOperations'
-import { User } from '~/types/entities/User'
+import type { User } from '~/types/entities/User'
 
 export const useSearchUsers = (searchText: string) => {
   const [searchUsers, setSearchUsers] = useState<Array<User>>([])
