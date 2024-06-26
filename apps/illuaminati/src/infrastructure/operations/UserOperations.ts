@@ -1,5 +1,18 @@
 import type { Unsubscribe } from 'firebase/firestore'
-import { doc, getDoc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore'
+import {
+  collection,
+  doc,
+  endAt,
+  getDoc,
+  limit,
+  onSnapshot,
+  orderBy,
+  query,
+  setDoc,
+  snapshotEqual,
+  startAt,
+  updateDoc,
+} from 'firebase/firestore'
 
 import { db } from '~/libs/firebase'
 import type {
@@ -18,6 +31,32 @@ export const createUserOperation = async (
   dto: CreateUserDto,
 ): Promise<void> => {
   await setDoc(doc(db, userCollection, userId), { ...dto })
+}
+
+export const subscribeUsersByDisplayNameOperation = (
+  displayName: string,
+  setter: (data: Array<User>) => void,
+): Unsubscribe => {
+  const unsubscribe = onSnapshot(
+    query(
+      collection(db, userCollection),
+      orderBy('displayName'),
+      startAt(displayName),
+      endAt(displayName + '\uf8ff'),
+      limit(10),
+    ),
+    (snapshot) => {
+      const users = snapshot.docs.map((doc) => {
+        const user = {
+          userId: doc.id,
+          ...convertDate(doc.data(), dateColumns),
+        } as User
+        return user
+      })
+      return setter(users)
+    },
+  )
+  return unsubscribe
 }
 
 export const subscribeUserByIdOperation = (
