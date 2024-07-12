@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import styles from './style.module.css'
 
-import { useAdminUserType } from '~/features/adminUser/profile/hooks/useUserType'
+import { useAdminUserType } from '~/features/adminUser/hooks/useUserType'
 import { EditProfileModal } from '~/features/adminUser/profile/components/EditProfileModal'
 import { useMyAdminUser } from '~/hooks/useMyAdminUser'
 import { AdminIlluaminatiCard } from '~/components/Cards/AdminIlluaminatiCard'

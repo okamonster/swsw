@@ -11,7 +11,7 @@ type Props = {
 
 export const SwanswansCard = ({ user }: Props): React.ReactNode => {
   return (
-    <Link href="" className={styles.swanswansCard}>
+    <Link href={`/swsw/${user.username}`} className={styles.swanswansCard}>
       <Image
         src={user.profileImagePath}
         width={80}

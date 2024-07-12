@@ -3,6 +3,7 @@ import {
   collection,
   doc,
   getDoc,
+  getDocs,
   onSnapshot,
   query,
   setDoc,
@@ -28,6 +29,26 @@ export const createAdminUserOperation = async (
   dto: CreateAdminUserDto,
 ): Promise<void> => {
   await setDoc(doc(db, adminUserCollection, userId), { ...dto })
+}
+
+export const fetchAdminUserByUsernameOperation = async (username: string) => {
+  const snapshot = await getDocs(
+    query(
+      collection(db, adminUserCollection),
+      where('username', '==', username),
+    ),
+  )
+
+  if (snapshot.empty) {
+    return undefined
+  }
+
+  const doc = snapshot.docs[0].data()
+
+  return {
+    adminUserId: doc.id,
+    ...convertDate(doc, dateColumns),
+  } as AdminUser
 }
 
 export const subscribeAdminUsersByAdminTypeOperation = (
