@@ -8,6 +8,8 @@ import { useMyUser } from '~/hooks/useMyUser'
 import { useAuthContext } from '~/providers/AuthProvider'
 import { useGeneralUser } from '~/hooks/useGeneralUser'
 import type { UserId } from '~/types/entities/User'
+import { useSwanswans } from '~/features/home/hooks/useSwanswans'
+import { SwanswansCard } from '../SwanswansCard'
 
 type Props = {
   userId: UserId
@@ -15,6 +17,7 @@ type Props = {
 
 export const UserDetailContainer = ({ userId }: Props): React.ReactNode => {
   const user = useGeneralUser(userId)
+  const swanswans = useSwanswans()
 
   return (
     user && (
@@ -32,7 +35,14 @@ export const UserDetailContainer = ({ userId }: Props): React.ReactNode => {
           <h2 className={styles.heading}>趣味</h2>
           <p className={styles.bubble}>{user?.hobby}</p>
         </div>
-        <div className={styles.swswCards}></div>
+        <div className={styles.swswCards}>
+          <p className={styles.label}>スワンスワンズの会員証</p>
+          <div className={styles.swanswansList}>
+            {swanswans.map((swanswans) => {
+              return <SwanswansCard key={swanswans.username} user={swanswans} />
+            })}
+          </div>
+        </div>
       </div>
     )
   )
