@@ -9,7 +9,6 @@ import {
   orderBy,
   query,
   setDoc,
-  snapshotEqual,
   startAt,
   updateDoc,
 } from 'firebase/firestore'
@@ -31,6 +30,21 @@ export const createUserOperation = async (
   dto: CreateUserDto,
 ): Promise<void> => {
   await setDoc(doc(db, userCollection, userId), { ...dto })
+}
+
+export const fetchUserByIdOperation = async (
+  userId: UserId,
+): Promise<User | undefined> => {
+  const snapshot = await getDoc(doc(db, userCollection, userId))
+
+  if (!snapshot.exists()) {
+    return undefined
+  }
+
+  return {
+    userId: snapshot.id,
+    ...convertDate(snapshot.data(), dateColumns),
+  } as User
 }
 
 export const subscribeUsersByDisplayNameOperation = (
