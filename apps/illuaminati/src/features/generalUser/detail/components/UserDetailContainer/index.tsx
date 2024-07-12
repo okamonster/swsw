@@ -1,15 +1,10 @@
-import { FaXTwitter } from 'react-icons/fa6'
-import { useDisclosure } from '@mantine/hooks'
-
 import styles from './style.module.css'
 
+import { SwanswansCard } from '~/features/generalUser/detail/components/SwanswansCard'
 import { IlluaminatiCard } from '~/components/Cards/IlluaminatiCard'
-import { useMyUser } from '~/hooks/useMyUser'
-import { useAuthContext } from '~/providers/AuthProvider'
 import { useGeneralUser } from '~/hooks/useGeneralUser'
 import type { UserId } from '~/types/entities/User'
 import { useSwanswans } from '~/features/home/hooks/useSwanswans'
-import { SwanswansCard } from '../SwanswansCard'
 
 type Props = {
   userId: UserId
