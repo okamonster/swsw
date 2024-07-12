@@ -8,9 +8,9 @@ export const ShareHeader = (): React.ReactNode => {
   return (
     <header className={styles.header}>
       <IconButton
-        icon={<MdChevronLeft />}
+        icon={<MdChevronLeft size={30} />}
         onClick={() => {}}
-        size={30}
+        size={40}
         backgroundColor="var( --bg-color-white)"
       />
     </header>

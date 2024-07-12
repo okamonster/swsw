@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 
-import { ShareLayout } from '~/Layouts/ShareLayout'
+import { SimpleLayout } from '~/Layouts/SimpleLayout'
 import { UserDetailContainer } from '~/features/generalUser/detail/components/UserDetailContainer'
 import type { UserId } from '~/types/entities/User'
 
@@ -10,9 +10,9 @@ type Props = {
 
 const Page: NextPage<Props> = ({ userId }) => {
   return (
-    <ShareLayout>
+    <SimpleLayout>
       <UserDetailContainer userId={userId} />
-    </ShareLayout>
+    </SimpleLayout>
   )
 }
 
