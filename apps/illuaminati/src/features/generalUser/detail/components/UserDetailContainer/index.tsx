@@ -4,7 +4,7 @@ import { SwanswansCard } from '~/features/generalUser/detail/components/Swanswan
 import { IlluaminatiCard } from '~/components/Cards/IlluaminatiCard'
 import { useGeneralUser } from '~/hooks/useGeneralUser'
 import type { UserId } from '~/types/entities/User'
-import { useSwanswans } from '~/features/home/hooks/useSwanswans'
+import { useSwanswans } from '~/hooks/useSwanswans'
 
 type Props = {
   userId: UserId
