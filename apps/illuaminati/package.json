@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.12.1",
     "@hookform/resolvers": "^3.6.0",
     "@mantine/core": "^7.10.2",
     "@mantine/dropzone": "^7.10.2",
@@ -27,7 +28,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.11.3",
     "@types/node": "^20.14.8",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
