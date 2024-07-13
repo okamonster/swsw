@@ -20,6 +20,8 @@ const Page: NextPage<Props> = ({ userId }) => {
   )
 }
 
+export default Page
+
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const userId = ctx.query.id
 
@@ -29,4 +31,3 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
     },
   }
 }
-export default Page
