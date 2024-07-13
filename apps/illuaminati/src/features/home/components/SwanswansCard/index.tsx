@@ -64,7 +64,7 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
         </Link>
 
         <BaseButton
-          label="カードを見る"
+          label="会員証を見る"
           variant="primary"
           onClick={() => push(`/swsw/${user.username}`)}
         />
