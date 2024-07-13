@@ -1,10 +1,13 @@
-import { AdminUser } from '~/types/entities/AdminUser'
-import styles from './style.module.css'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { IconButton } from '~/components/IconButton'
 import { FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import styles from './style.module.css'
+
+import { IconButton } from '~/components/IconButton'
+import type { AdminUser } from '~/types/entities/AdminUser'
 import { BaseButton } from '~/components/BaseButton'
 
 type Props = {
@@ -12,6 +15,7 @@ type Props = {
 }
 
 export const SwanswansCard = ({ user }: Props): React.ReactNode => {
+  const { push } = useRouter()
   const bubbleClass = classNames(styles.bubble, {
     [styles._ami]: user.username === 'swsw-01',
     [styles._akari]: user.username === 'swsw-02',
@@ -59,7 +63,11 @@ export const SwanswansCard = ({ user }: Props): React.ReactNode => {
           />
         </Link>
 
-        <BaseButton label="カードを見る" variant="primary" onClick={() => {}} />
+        <BaseButton
+          label="会員証を見る"
+          variant="primary"
+          onClick={() => push(`/swsw/${user.username}`)}
+        />
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import styles from './style.module.css'
 
 import { useSearchUsers } from '~/features/adminUser/search/hooks/useSearchUsers'
+import { SearchUserList } from '~/features/adminUser/search/components/SearchUserList'
 
 export const SearchContainer = (): React.ReactNode => {
   const { register, watch } = useForm({ defaultValues: { search: '' } })
@@ -18,9 +19,7 @@ export const SearchContainer = (): React.ReactNode => {
           {...register('search')}
         />
       </div>
-      {searchUser.map((user) => (
-        <p>{user.displayName}</p>
-      ))}
+      <SearchUserList users={searchUser} />
     </div>
   )
 }

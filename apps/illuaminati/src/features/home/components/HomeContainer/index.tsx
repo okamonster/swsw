@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import styles from './style.module.css'
 
-import { useSwanswans } from '~/features/home/hooks/useSwanswans'
+import { useSwanswans } from '~/hooks/useSwanswans'
 import { SwanswansCard } from '~/features/home/components/SwanswansCard'
 
 export const HomeContainer = (): React.ReactNode => {
