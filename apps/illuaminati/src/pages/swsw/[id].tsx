@@ -22,12 +22,6 @@ const Page: NextPage<Props> = ({ username }) => {
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const username = ctx.query.id
 
-  if (!username) {
-    return {
-      notFound: true,
-    }
-  }
-
   return {
     props: {
       username: username as string,
