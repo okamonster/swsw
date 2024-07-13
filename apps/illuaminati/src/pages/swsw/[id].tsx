@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 
 import { ShareLayout } from '~/Layouts/ShareLayout'
 import { UserDetailContainer } from '~/features/adminUser/detail/UserDetailContainer'
+export const runtime = 'experimental-edge'
 
 type Props = {
   username: string
