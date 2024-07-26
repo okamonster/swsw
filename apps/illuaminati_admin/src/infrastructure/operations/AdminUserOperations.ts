@@ -18,6 +18,7 @@ import type {
   UpdateAdminUserDto,
   AdminUser,
   AdminType,
+  AdminUserName,
 } from '~/types/entities/AdminUser'
 import { adminUserCollection } from '~/types/entities/AdminUser'
 import { convertDate } from '~/utils/convertDate'
@@ -109,4 +110,16 @@ export const updateAdminUserByIdOperation = async (
 export const isExistAdminUserByIdOperation = async (userId: AdminUserId) => {
   const user = await getDoc(doc(db, adminUserCollection, userId))
   return user.exists()
+}
+
+export const isExistAdminUserByUsernameOperation = async (
+  username: AdminUserName,
+) => {
+  const user = await getDocs(
+    query(
+      collection(db, adminUserCollection),
+      where('username', '==', username),
+    ),
+  )
+  return user.docs.length > 0
 }

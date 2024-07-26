@@ -1,12 +1,11 @@
 import { useState } from 'react'
+
 import {
-  AdminUserProfileSchemaType,
-  SerialCodeSchemaType,
   akariOptions,
   amiOptions,
   developerOptions,
-} from '../types'
-import { AdminUser } from '~/types/entities/AdminUser'
+} from '~/features/adminUser/profile/types'
+import type { AdminUser } from '~/types/entities/AdminUser'
 
 export const useSerialCode = () => {
   const [profileOptionValues, setProfileOptionValues] = useState<AdminUser>()

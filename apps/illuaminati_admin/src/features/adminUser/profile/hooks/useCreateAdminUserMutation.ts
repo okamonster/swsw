@@ -1,15 +1,11 @@
 import { useCallback } from 'react'
 
-import type { UserProfileSchemaType } from '~/features/generalUser/profile/types'
 import { useAuthContext } from '~/providers/AuthProvider'
-import { serverTimestamp } from '~/libs/firebase'
-import { createAdminUserOperation } from '~/infrastructure/operations/AdminUserOperations'
-import { AdminUserProfileSchemaType } from '../types'
 import {
-  AdminType,
-  AdminUserName,
-  CreateAdminUserDto,
-} from '~/types/entities/AdminUser'
+  createAdminUserOperation,
+  fetchAdminUserByUsernameOperation,
+} from '~/infrastructure/operations/AdminUserOperations'
+import type { CreateAdminUserDto } from '~/types/entities/AdminUser'
 
 export const useCreateAdminUserMutation = () => {
   const { uid, currentUser } = useAuthContext()
@@ -18,6 +14,12 @@ export const useCreateAdminUserMutation = () => {
     async (data: CreateAdminUserDto) => {
       if (!uid || !currentUser) {
         return
+      }
+
+      const isExistUser = await fetchAdminUserByUsernameOperation(data.username)
+
+      if (isExistUser) {
+        throw new Error('既に登録されているユーザーです')
       }
 
       await createAdminUserOperation(uid, data)
