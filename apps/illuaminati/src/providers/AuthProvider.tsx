@@ -17,7 +17,7 @@ const AuthContext = createContext<{
   logout: async () => {},
 })
 
-const nonAuthPaths = ['/login']
+const nonAuthPaths = ['/login', '/signup', '/swsw', '/dev', '/user']
 
 const isAuthPath = (path: string) => {
   return !nonAuthPaths.some((nonAuthPath) => path.startsWith(nonAuthPath))
@@ -30,14 +30,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const isLogin = useMemo(() => !!currentUser, [currentUser])
 
-  const logout = async (isAdmin?: boolean) => {
+  const logout = async () => {
     await signOut(auth)
     setCurrentUser(null)
     setUid(null)
-    if (isAdmin) {
-      push('/swanswansAdmin')
-      return
-    }
+
     push('/')
   }
 
@@ -50,6 +47,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (!user) {
         setCurrentUser(null)
         setUid(null)
+        push('/')
         return
       }
 

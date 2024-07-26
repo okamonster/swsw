@@ -17,7 +17,11 @@ const AuthContext = createContext<{
   logout: async () => {},
 })
 
-const nonAuthPaths = ['/', '/login', '/signup']
+const nonAuthPaths = ['/login', '/signup', '/swsw', '/dev', '/user']
+
+const isAuthPath = (path: string) => {
+  return !nonAuthPaths.some((nonAuthPath) => path.startsWith(nonAuthPath))
+}
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { pathname, push } = useRouter()
@@ -36,17 +40,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (nonAuthPaths.includes(pathname)) {
-        return
-      }
-      if (!user) {
-        push('/login')
+      if (!isAuthPath(pathname)) {
         return
       }
 
       if (!user) {
         setCurrentUser(null)
         setUid(null)
+        push('/')
         return
       }
 
