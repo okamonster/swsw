@@ -1,0 +1,17 @@
+.searchUserList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .section {
+    border-top: solid 1px var(--border-color-gray);
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+}
