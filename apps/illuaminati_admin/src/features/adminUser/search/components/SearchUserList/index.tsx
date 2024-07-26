@@ -45,7 +45,7 @@ export const SearchUserList = ({ users }: Props) => {
           {users.map((user) => (
             <SearchUserCard
               key={user.userId}
-              path={`/${user.userId}`}
+              path={`/user/${user.userId}`}
               displayName={user.displayName}
               profileImagePath={user.profileImagePath}
             />
