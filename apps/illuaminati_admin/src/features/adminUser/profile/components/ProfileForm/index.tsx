@@ -63,7 +63,7 @@ export const ProfileForm = ({ defaultValues }: Props): React.ReactNode => {
 
         await createAdminUser(adminUserDto)
         showSuccessToast('ユーザーを作成しました')
-        push('/swanswansAdmin/home')
+        push('/home')
       } catch (e) {
         showErrorToast('ユーザーの作成に失敗しました')
       }

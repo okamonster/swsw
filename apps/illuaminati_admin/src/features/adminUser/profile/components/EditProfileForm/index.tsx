@@ -9,7 +9,7 @@ import type { EditAdminUserProfileSchemaType } from '~/features/adminUser/profil
 import { useUpdateAdminUserMutation } from '~/features/adminUser/profile/hooks/useUpdateAdminUserMutation'
 import { ProfileImageInput } from '~/components/Inputs/ProfileImageInput'
 import { BaseButton } from '~/components/BaseButton'
-import { editUserProfileSchema } from '~/features/generalUser/profile/types'
+import { editAdminUserProfileSchema } from '~/features/adminUser/profile/types'
 import { useToast } from '~/hooks/useToast'
 import { serverTimestamp } from '~/libs/firebase'
 import type { AdminUser, UpdateAdminUserDto } from '~/types/entities/AdminUser'
@@ -41,7 +41,7 @@ export const EditProfileForm = ({
       twitterId: myAdminUser.twitterId,
       instagramId: myAdminUser.instagramId,
     },
-    resolver: zodResolver(editUserProfileSchema),
+    resolver: zodResolver(editAdminUserProfileSchema),
     mode: 'all',
   })
 

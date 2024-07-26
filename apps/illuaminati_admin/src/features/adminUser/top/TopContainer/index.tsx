@@ -22,7 +22,7 @@ export const TopContainer = (): React.ReactNode => {
           width="300px"
           variant="secondary"
           radius="lg"
-          href="/swanswansAdmin/login"
+          href="/login"
         />
 
         <LinkButton
@@ -30,7 +30,7 @@ export const TopContainer = (): React.ReactNode => {
           width="300px"
           variant="secondary"
           radius="lg"
-          href="/swanswansAdmin/signup"
+          href="/signup"
         />
       </div>
     </div>

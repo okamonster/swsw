@@ -18,7 +18,7 @@ export const AdminFooter = ({ currentTab }: Props): React.ReactNode => {
   const navitems = [
     {
       title: 'Search',
-      href: '/swanswansAdmin/search',
+      href: '/search',
       icon: (
         <MdSearch
           size={35}
@@ -32,7 +32,7 @@ export const AdminFooter = ({ currentTab }: Props): React.ReactNode => {
     },
     {
       title: 'Home',
-      href: '/swanswansAdmin/home',
+      href: '/home',
       icon: (
         <MdHome
           size={35}
@@ -53,7 +53,7 @@ export const AdminFooter = ({ currentTab }: Props): React.ReactNode => {
           {navitem.icon}
         </Link>
       ))}
-      <Link href="/swanswansAdmin/mypage">
+      <Link href="/mypage">
         {myAdminUser ? (
           <Image
             width={150}

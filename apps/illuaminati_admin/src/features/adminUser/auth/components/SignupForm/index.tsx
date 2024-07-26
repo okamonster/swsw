@@ -10,8 +10,8 @@ import styles from './style.module.css'
 
 import { BaseButton } from '~/components/BaseButton'
 import { LinkButton } from '~/components/LinkButton'
-import type { SignupFormSchemaType } from '~/features/generalUser/auth/types'
-import { signupFormSchema } from '~/features/generalUser/auth/types'
+import type { SignupFormSchemaType } from '~/features/adminUser/auth/types'
+import { signupFormSchema } from '~/features/adminUser/auth/types'
 import { auth } from '~/libs/firebase'
 import { useToast } from '~/hooks/useToast'
 
@@ -35,7 +35,7 @@ export const SignupForm = (): React.ReactNode => {
     async (data: SignupFormSchemaType) => {
       try {
         await createUserWithEmailAndPassword(auth, data.email, data.password)
-        push('/swanswansAdmin/register')
+        push('/register')
       } catch (error) {
         showErrorToast('登録に失敗しました')
       }
@@ -61,13 +61,8 @@ export const SignupForm = (): React.ReactNode => {
 
       <div className={styles.actions}>
         <BaseButton label="登録" radius="lg" />
-        <LinkButton
-          label="もどる"
-          href="/swanswansAdmin"
-          radius="lg"
-          variant="tertiary"
-        />
-        <Link href="/swanswansAdmin/login" className={styles.loginLink}>
+        <LinkButton label="もどる" href="/" radius="lg" variant="tertiary" />
+        <Link href="/login" className={styles.loginLink}>
           ログイン
         </Link>
       </div>

@@ -11,10 +11,10 @@ export const useAfterAdminLogin = () => {
       const isRegistered = await isExistAdminUserByIdOperation(userId)
 
       if (isRegistered) {
-        push('/swanswansAdmin/home')
+        push('/home')
         return
       } else {
-        push('/swanswansAdmin/register')
+        push('/register')
         return
       }
     },

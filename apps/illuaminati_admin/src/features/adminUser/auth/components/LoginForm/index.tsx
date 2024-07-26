@@ -9,8 +9,8 @@ import styles from './style.module.css'
 
 import { BaseButton } from '~/components/BaseButton'
 import { LinkButton } from '~/components/LinkButton'
-import type { LoginFormSchemaType } from '~/features/generalUser/auth/types'
-import { loginFormSchema } from '~/features/generalUser/auth/types'
+import type { LoginFormSchemaType } from '~/features/adminUser/auth/types'
+import { loginFormSchema } from '~/features/adminUser/auth/types'
 import { auth } from '~/libs/firebase'
 import { useToast } from '~/hooks/useToast'
 import { useAfterAdminLogin } from '~/hooks/useAfterAdminLogin'
@@ -65,13 +65,8 @@ export const LoginForm = (): React.ReactNode => {
 
       <div className={styles.actions}>
         <BaseButton label="ログイン" radius="lg" />
-        <LinkButton
-          label="もどる"
-          href="/swanswansAdmin"
-          radius="lg"
-          variant="tertiary"
-        />
-        <Link href="/swanswansAdmin/signup" className={styles.signupLink}>
+        <LinkButton label="もどる" href="/" radius="lg" variant="tertiary" />
+        <Link href="/signup" className={styles.signupLink}>
           会員証をつくる
         </Link>
       </div>

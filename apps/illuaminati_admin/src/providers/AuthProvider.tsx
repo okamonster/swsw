@@ -30,14 +30,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const isLogin = useMemo(() => !!currentUser, [currentUser])
 
-  const logout = async (isAdmin?: boolean) => {
+  const logout = async () => {
     await signOut(auth)
     setCurrentUser(null)
     setUid(null)
-    if (isAdmin) {
-      push('/swanswansAdmin')
-      return
-    }
+
     push('/')
   }
 

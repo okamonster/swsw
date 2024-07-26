@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 
-import { DefaultLayout } from '~/Layouts/DefaultLayout'
+import { AdminLayout } from '~/Layouts/AdminLayout'
 import { HomeContainer } from '~/features/home/components/HomeContainer'
 
 const Page: NextPage = () => {
   return (
-    <DefaultLayout currentTab="home">
+    <AdminLayout currentTab="home">
       <HomeContainer />
-    </DefaultLayout>
+    </AdminLayout>
   )
 }
 
