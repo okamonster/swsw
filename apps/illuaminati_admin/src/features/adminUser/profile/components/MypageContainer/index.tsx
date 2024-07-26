@@ -10,6 +10,7 @@ import { useMyAdminUser } from '~/hooks/useMyAdminUser'
 import { AdminIlluaminatiCard } from '~/components/Cards/AdminIlluaminatiCard'
 import { BaseButton } from '~/components/BaseButton'
 import { useAuthContext } from '~/providers/AuthProvider'
+import { IconButton } from '~/components/IconButton'
 
 export const MypageContainer = (): React.ReactNode => {
   const myAdminUser = useMyAdminUser()
@@ -49,9 +50,12 @@ export const MypageContainer = (): React.ReactNode => {
             )}
             <h1 className={styles.title}>SNSでシェア</h1>
             <div className={styles.buttonList}>
-              <button className={styles.twitter}>
-                <FaXTwitter size={20} color="var(--color-text-white)" />
-              </button>
+              <IconButton
+                size={35}
+                backgroundColor="var(--bg-color-black)"
+                onClick={() => {}}
+                icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
+              />
             </div>
           </div>
 
