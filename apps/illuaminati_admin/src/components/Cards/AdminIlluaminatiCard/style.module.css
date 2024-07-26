@@ -1,0 +1,103 @@
+.cardBorder {
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.illuaminatiCard {
+  width: 330px;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-white);
+  position: relative;
+  gap: 20px;
+  padding: 10px 15px;
+
+  .title {
+    font-family: 'Kaisei Opti';
+    font-size: 16px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-primary);
+  }
+
+  .visual {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .profileImage {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      border: solid 1px var(--border-color-gray);
+      object-fit: cover;
+    }
+
+    .displayName {
+      font-size: 18px;
+      font-family: 'Kaisei Opti', serif;
+    }
+  }
+
+  .number {
+    font-size: 14px;
+    font-family: 'Roboto', serif;
+  }
+
+  .swanIcon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+._borderAmi {
+  background: linear-gradient(
+    45deg,
+    #b67b03 0%,
+    #daaf08 45%,
+    #fee9a0 70%,
+    #daaf08 85%,
+    #b67b03 90% 100%
+  );
+}
+
+._borderAkari {
+  background: linear-gradient(
+    45deg,
+    #b67b03 0%,
+    #daaf08 45%,
+    #fee9a0 70%,
+    #daaf08 85%,
+    #b67b03 90% 100%
+  );
+}
+
+._borderDeveloper {
+  background: linear-gradient(
+    45deg,
+    #757575 0%,
+    #9e9e9e 45%,
+    #e8e8e8 70%,
+    #9e9e9e 85%,
+    #757575 90% 100%
+  );
+}
+
+._ami {
+  background-color: var(--color-card-pink);
+  color: #b20038;
+}
+
+._akari {
+  background-color: var(--color-card-blue);
+  color: #245589;
+}
+
+._developer {
+  background-color: var(--color-card-black);
+  color: var(--color-text-white);
+}
