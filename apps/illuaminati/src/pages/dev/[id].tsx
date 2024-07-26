@@ -1,32 +1,18 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 
 import { ShareLayout } from '~/Layouts/ShareLayout'
 import { UserDetailContainer } from '~/features/adminUser/detail/UserDetailContainer'
 
-export const config = {
-  runtime: 'experimental-edge',
-}
+const Page: NextPage = () => {
+  const { query } = useRouter()
+  const { id } = query
 
-type Props = {
-  username: string
-}
-
-const Page: NextPage<Props> = ({ username }) => {
   return (
     <ShareLayout>
-      <UserDetailContainer username={username} />
+      {id && typeof id === 'string' && <UserDetailContainer username={id} />}
     </ShareLayout>
   )
 }
 
 export default Page
-
-export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-  const username = ctx.query.id
-
-  return {
-    props: {
-      username: username as string,
-    },
-  }
-}
