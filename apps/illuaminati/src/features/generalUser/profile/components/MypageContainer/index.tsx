@@ -9,11 +9,18 @@ import { EditProfileModal } from '~/features/generalUser/profile/components/Edit
 import { BaseButton } from '~/components/BaseButton'
 import { useAuthContext } from '~/providers/AuthProvider'
 import { IconButton } from '~/components/IconButton'
+import { useTwitterShare } from '~/hooks/useTwitterShare'
 
 export const MypageContainer = (): React.ReactNode => {
   const myUser = useMyUser()
   const [isOpen, handlers] = useDisclosure()
   const { logout } = useAuthContext()
+
+  const shareUrl = useTwitterShare(
+    `${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/user/${myUser?.userId}`,
+    `△${myUser?.displayName}さんのイルアミナティカード▼\nイルアミナティの会員証を作りました！\n🎀みんなも会員証を作ってみてね！🎀`,
+    ['スワンスワンズ', 'スワスワちゃん'],
+  )
 
   return (
     myUser && (
@@ -28,7 +35,9 @@ export const MypageContainer = (): React.ReactNode => {
               <IconButton
                 size={35}
                 backgroundColor="var(--bg-color-black)"
-                onClick={() => {}}
+                onClick={() => {
+                  window.open(shareUrl, '_blank')
+                }}
                 icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
               />
             </div>

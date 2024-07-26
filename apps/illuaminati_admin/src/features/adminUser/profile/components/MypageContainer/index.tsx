@@ -1,6 +1,7 @@
 import { FaXTwitter } from 'react-icons/fa6'
 import { useDisclosure } from '@mantine/hooks'
 import classNames from 'classnames'
+import { useMemo } from 'react'
 
 import styles from './style.module.css'
 
@@ -11,6 +12,7 @@ import { AdminIlluaminatiCard } from '~/components/Cards/AdminIlluaminatiCard'
 import { BaseButton } from '~/components/BaseButton'
 import { useAuthContext } from '~/providers/AuthProvider'
 import { IconButton } from '~/components/IconButton'
+import { useTwitterShare } from '~/hooks/useTwitterShare'
 
 export const MypageContainer = (): React.ReactNode => {
   const myAdminUser = useMyAdminUser()
@@ -30,6 +32,16 @@ export const MypageContainer = (): React.ReactNode => {
     { [styles._ami]: userType === 'ami' },
     { [styles._akari]: userType === 'akari' },
     { [styles._developer]: userType === 'developer' },
+  )
+
+  const isDeveloper = useMemo(() => userType === 'developer', [userType])
+
+  const shareUrl = useTwitterShare(
+    `${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/${
+      isDeveloper ? 'dev' : 'swsw'
+    }/${myAdminUser?.username}`,
+    `△${myAdminUser?.displayName}さんのイルアミナティカード▼\nイルアミナティの会員証を作りました！\n🎀みんなも会員証を作ってみてね！🎀`,
+    ['スワンスワンズ', 'スワスワちゃん'],
   )
 
   return (
@@ -53,7 +65,9 @@ export const MypageContainer = (): React.ReactNode => {
               <IconButton
                 size={35}
                 backgroundColor="var(--bg-color-black)"
-                onClick={() => {}}
+                onClick={() => {
+                  window.open(shareUrl, '_blank')
+                }}
                 icon={<FaXTwitter size={20} color="var(--color-text-white)" />}
               />
             </div>
