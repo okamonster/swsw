@@ -47,7 +47,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!isAuthPath(pathname)) {
+      if (!isAuthPath(pathname) || pathname === '/') {
         return
       }
 
