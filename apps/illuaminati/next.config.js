@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require('next-pwa')({
+  dest: 'public',
+})
+
+const nextConfig = withPWA({
   experimental: {
     runtime: 'experimental-edge',
   },
@@ -8,6 +12,6 @@ const nextConfig = {
   images: {
     domains: ['firebasestorage.googleapis.com'],
   },
-}
+})
 
 module.exports = nextConfig
