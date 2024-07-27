@@ -1,7 +1,14 @@
 import { useRouter } from 'next/router'
 import type { User } from 'firebase/auth'
 import { signOut, onAuthStateChanged } from 'firebase/auth'
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import { auth } from '~/libs/firebase'
 
@@ -19,16 +26,16 @@ const AuthContext = createContext<{
 
 const nonAuthPaths = ['/login', '/signup', '/swsw', '/dev', '/user']
 
-const isAuthPath = (path: string) => {
-  return !nonAuthPaths.some((nonAuthPath) => path.startsWith(nonAuthPath))
-}
-
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { pathname, push } = useRouter()
   const [currentUser, setCurrentUser] = useState<User | null | undefined>(null)
   const [uid, setUid] = useState<string | null>(null)
 
   const isLogin = useMemo(() => !!currentUser, [currentUser])
+
+  const isAuthPath = useCallback((path: string) => {
+    return !nonAuthPaths.some((nonAuthPath) => path.startsWith(nonAuthPath))
+  }, [])
 
   const logout = async () => {
     await signOut(auth)
@@ -58,7 +65,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         unsubscribe()
       }
     })
-  }, [pathname, push])
+  }, [isAuthPath, pathname, push])
 
   return (
     <AuthContext.Provider
