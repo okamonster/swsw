@@ -44,6 +44,8 @@ export default function Document() {
           name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
         />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon.png" />
       </Head>
       <body>
         <Main />
