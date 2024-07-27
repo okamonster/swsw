@@ -24,7 +24,7 @@ export default function Document() {
         />
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/OGP.png`}
+          content={`${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/images/OGP.png`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@SWAN_SWANS_" />
@@ -38,7 +38,7 @@ export default function Document() {
         />
         <meta
           name="twitter:image"
-          content={`${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/OGP.png`}
+          content={`${process.env.NEXT_PUBLIC_TWITTER_SHARE_URL}/images/OGP.png`}
         />
         <meta
           name="viewport"
