@@ -2,10 +2,9 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="ja">
       <Head title="スワンスワンズ イルアミナティデジタル会員証">
         <meta charSet="utf-8" />
-        <meta lang="ja" />
         <meta
           name="description"
           content="スワンスワンズ イルアミナティデジタル会員証"
